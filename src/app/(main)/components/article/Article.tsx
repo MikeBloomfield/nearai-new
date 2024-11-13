@@ -33,7 +33,10 @@ const Article: React.FC<ArticleProps> = ({ setWindow, isOpenWindow }) => {
   const [isBulbOnVisible, setIsBulbOnVisible] = useState(false);
   const bulbContainerRef = useRef(null);
 
+  
+
   useEffect(() => {
+    window.dispatchEvent(new Event('resize'));
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsBulbOnVisible(entry.isIntersecting);
@@ -87,7 +90,7 @@ const Article: React.FC<ArticleProps> = ({ setWindow, isOpenWindow }) => {
           },
         },
       );
-    }, []);
+    });
 
     // if (!isTablet && bigTextRef.current) {
     //   ScrollTrigger.create({
@@ -100,7 +103,7 @@ const Article: React.FC<ArticleProps> = ({ setWindow, isOpenWindow }) => {
   }, [isTablet, infoRefs, isOpenWindow, sectionRef, bulbContainerRef]);
 
   return (
-    <section className={`${styles.section} ${isOpenWindow && styles.active}`} ref={sectionRef}>
+    <section className={`${styles.section} ${isOpenWindow && styles.active}`} >
       <CrossImage className={styles.AbsIcon} onClick={() => setWindow(false)} />
       <div className="wrapper">
         <div className={styles.container}>
@@ -115,7 +118,7 @@ const Article: React.FC<ArticleProps> = ({ setWindow, isOpenWindow }) => {
                 </span>
                 <br />
                 <br />
-                <span className={styles.articleSubtitle}>A manifesto for user-owned AGI (artificial general intelligence).</span>
+                <span className={styles.articleSubtitle}>A manifesto for user-owned AGI artificial general intelligence.</span>
               </AnimatedText>
             </div>
             <div className={cn(styles.description, 'text-container', styles.m40)}>
