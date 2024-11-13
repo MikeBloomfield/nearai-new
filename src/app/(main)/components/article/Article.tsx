@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useMemo, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useIsUnderBreakpoint } from '@hooks/useIsUnderBreakpoint';
 import gsap from 'gsap';
 // import { ScrollTrigger } from "gsap/ScrollTrigger";

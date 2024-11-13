@@ -1,6 +1,5 @@
 'use client';
 import Hero from './components/hero/Hero';
-import Footer from './components/footer/Footer';
 import Map from './components/map/Map';
 import Landscape from './components/landscape/Landscape';
 import Solution from './components/solution/Solution';
