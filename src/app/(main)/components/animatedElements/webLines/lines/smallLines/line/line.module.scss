@@ -1,0 +1,75 @@
+.line {
+  opacity: 0;
+  animation: animateLine0 4s linear infinite forwards;
+}
+
+.isAnimate {
+  opacity: 1;
+}
+
+.isAnimate.line-0,
+.isAnimate.line-1,
+.isAnimate.line-2,
+.isAnimate.line-3,
+.isAnimate.line-4,
+.isAnimate.line-5 {
+  animation-direction: reverse;
+}
+.isAnimate.line-0,
+.isAnimate.line-1,
+.isAnimate.line-2,
+.isAnimate.line-3,
+.isAnimate.line-4,
+.isAnimate.line-5,
+.isAnimate.line-6,
+.isAnimate.line-7,
+.isAnimate.line-8,
+.isAnimate.line-9,
+.isAnimate.line-10 {
+  clip-path: inset(0% 0% 0% 100%);
+}
+.isAnimate.line-1 {
+  animation-delay: 2s;
+}
+.isAnimate.line-2 {
+  animation-delay: 1s;
+}
+
+.isAnimate.line-3 {
+  animation-delay: 2.5s;
+}
+.isAnimate.line-4 {
+  animation-delay: 2s;
+}
+
+.isAnimate.line-5 {
+  animation-delay: 1s;
+}
+
+.isAnimate.line-6 {
+  animation-delay: 0.5s;
+}
+.isAnimate.line-7 {
+  animation-delay: 2s;
+}
+.isAnimate.line-9 {
+  animation-delay: 1s;
+}
+.isAnimate.line-10 {
+  animation-delay: 2s;
+}
+
+@keyframes animateLine0 {
+  0% {
+    clip-path: inset(0% 100% 0% 0%);
+  }
+  10% {
+    clip-path: inset(0% 90% 0% 0%);
+  }
+  90% {
+    clip-path: inset(0% 0% 0% 90%);
+  }
+  100% {
+    clip-path: inset(0% 0% 0% 100%);
+  }
+}

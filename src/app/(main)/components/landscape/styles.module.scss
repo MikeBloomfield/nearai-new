@@ -1,0 +1,88 @@
+.section {
+  padding: 20px 0 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landscapeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 44px;
+  line-height: 52px;
+  max-width: 630px;
+  margin: 30px auto 60px;
+  text-align: center;
+  letter-spacing: -1.9px;
+}
+
+.landscapeItems {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.landscapeItem {
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  border: 1px solid rgba(#00eb9a, 0.4);
+  min-height: 297px;
+  width: 277px;
+  box-shadow: #00eb9a inset 0px 0px 80px -46px
+}
+.landscapeItemPic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -1px 3px 15px 3px var(--green);
+}
+
+.landscapeDesc {
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.4px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .landscapeItem {
+    width: 100%;
+    min-height: auto;
+    align-items: center;
+    gap: 30px;
+     p {
+      text-align: center;
+     }
+  }
+
+  .section {
+    padding: 20px 0 50px;
+  }
+
+  .title {
+  font-size: 34px;
+  line-height: 45px;
+  max-width: 630px;
+  margin: 30px auto 60px;
+  text-align: center;
+  letter-spacing: -1.9px;
+}
+}

@@ -1,0 +1,54 @@
+.button {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.44px;
+  border: 1px solid var(--green);
+  border-radius: 80px;
+  padding: 12px 24px;
+  position: relative;
+  &:hover {
+    .topBlink {
+      transform: translate(30%, -50%);
+    }
+    .bottomBlink {
+      transform: translate(-70%, 50%);
+    }
+  }
+
+  span {
+    background: var(--green-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .topBlink {
+    position: absolute;
+    height: 5px;
+    top: 0;
+    transform: translateY(-50%);
+    left: 15px;
+    width: 63%;
+    transition: 0.2s ease all;
+  }
+  .bottomBlink {
+    position: absolute;
+    height: 5px;
+    bottom: 0;
+    transform: translateY(50%);
+    right: 15px;
+    width: 41.5%;
+    transition: 0.2s ease all;
+  }
+
+  svg{
+    min-width: 15px;
+    position: relative;
+    top: 3px;
+  }
+}

@@ -1,0 +1,25 @@
+.stars_back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.lottie {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .lottie {
+    width: max-content;
+    justify-content: flex-start;
+    svg {
+      width: 70% !important;
+    }
+  }
+}
