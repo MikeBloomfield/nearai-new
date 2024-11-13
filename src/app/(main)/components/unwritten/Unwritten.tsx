@@ -4,7 +4,7 @@ import { useIsUnderBreakpoint } from '@hooks/useIsUnderBreakpoint';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import Footer from '../footer/Footer';
 import styles from './unwritten.module.scss';
 
 const Unwritten = () => {
@@ -63,15 +63,8 @@ const Unwritten = () => {
         <div className={styles.list}>
           <h3 className={styles.item}>Whether you&apos;re an AI researcher, developer, or enthusiast, there&apos;s a place for you in building the user-owned future of AI:</h3>
         </div>
-        <div className={styles.button}>
-          <Link href="#" className="default-button">
-            <span className="default-button__border"></span>
-            <span className="default-button__main">
-              <p>Join us</p>
-            </span>
-          </Link>
-        </div>
       </div>
+      <Footer/>
     </section>
   );
 };

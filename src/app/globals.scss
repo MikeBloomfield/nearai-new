@@ -213,6 +213,10 @@ a {
     }
   }
 
+    .word {
+      opacity: 1!important;
+    }
+
   .wrapper {
     padding: 0 20px;
   }
@@ -234,6 +238,7 @@ a {
       font-size: 40px;
       line-height: 40px;
     }
+  
   }
   .word_icon svg {
     width: 60px;

@@ -20,13 +20,15 @@ import CrossImage from '@images/icons/cross.svg';
 
 type ArticleProps = {
   setWindow: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpenWindow: boolean;
 };
 
-const Article: React.FC<ArticleProps> = ({ setWindow }) => {
+const Article: React.FC<ArticleProps> = ({ setWindow, isOpenWindow }) => {
   const infoRef1 = useRef(null);
   const infoRef2 = useRef(null);
   const infoRef3 = useRef(null);
   const bigTextRef = useRef(null);
+  const sectionRef = useRef(null);
 
   const [isBulbOnVisible, setIsBulbOnVisible] = useState(false);
   const bulbContainerRef = useRef(null);
@@ -37,7 +39,7 @@ const Article: React.FC<ArticleProps> = ({ setWindow }) => {
         setIsBulbOnVisible(entry.isIntersecting);
       },
       {
-        threshold: .5,
+        threshold: 0.3,
       },
     );
 
@@ -50,11 +52,11 @@ const Article: React.FC<ArticleProps> = ({ setWindow }) => {
         observer.unobserve(bulbContainerRef.current);
       }
     };
-  }, []);
+  }, [isOpenWindow]);
 
   const isTablet = useIsUnderBreakpoint('lg');
 
-  const infoRefs = useMemo(() => [infoRef1, infoRef2, infoRef3], []);
+  const infoRefs = [infoRef1, infoRef2, infoRef3];
 
   useEffect(() => {
     infoRefs.forEach((ref, index) => {
@@ -85,7 +87,7 @@ const Article: React.FC<ArticleProps> = ({ setWindow }) => {
           },
         },
       );
-    });
+    }, []);
 
     // if (!isTablet && bigTextRef.current) {
     //   ScrollTrigger.create({
@@ -95,10 +97,10 @@ const Article: React.FC<ArticleProps> = ({ setWindow }) => {
     //     pin: true,
     //   });
     // }
-  }, [isTablet, infoRefs]);
+  }, [isTablet, infoRefs, isOpenWindow, sectionRef, bulbContainerRef]);
 
   return (
-    <section className={styles.section}>
+    <section className={`${styles.section} ${isOpenWindow && styles.active}`} ref={sectionRef}>
       <CrossImage className={styles.AbsIcon} onClick={() => setWindow(false)} />
       <div className="wrapper">
         <div className={styles.container}>
@@ -106,9 +108,11 @@ const Article: React.FC<ArticleProps> = ({ setWindow }) => {
             <Author />
           </div>
           <div className={styles.main}>
-            <div className={cn(styles.description_big, styles.description_big_animated)} ref={bigTextRef}>
+            <div className={cn(styles.description_big, styles.description_big_animated, 'text-container')} ref={bigTextRef}>
               <AnimatedText isBig>
-                <span className={`${styles.titleMain} text-gradient`}>NEAR.AI</span>
+                <span className={`${styles.titleMain} text-gradient, text-container`}>
+                  <span className="text-gradient">NEAR.AI</span>
+                </span>
                 <br />
                 <br />
                 <span className={styles.articleSubtitle}>A manifesto for user-owned AGI (artificial general intelligence).</span>
@@ -142,17 +146,16 @@ const Article: React.FC<ArticleProps> = ({ setWindow }) => {
           </div>
         </div>
       </div>
+      <div className={styles.EarthContainer}>
+        <EarthImage />
+      </div>
       <div className="wrapper">
-        <div className={styles.EarthContainer}>
-          {' '}
-          <EarthImage />
-        </div>
         <div className={styles.container}>
-          <div className={styles.info}>
+          <div className={styles.info} ref={infoRef2}>
             <Author />
           </div>
           <div className={styles.main}>
-            <div className={cn(styles.description, 'text-container', styles.subtitle, styles.m60)} ref={infoRef2}>
+            <div className={cn(styles.description, 'text-container', styles.subtitle, styles.m60)}>
               <AnimatedText>
                 Our own starting point
                 <RocketIcon />

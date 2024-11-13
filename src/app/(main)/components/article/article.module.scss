@@ -1,5 +1,20 @@
 .section {
   padding: 50px 0;
+  background: black;
+  z-index: 100;
+  border-radius: 40px 40px 0 0;
+  transition: 0.3s ease all;
+  opacity: 0;
+  pointer-events: none;
+  height: 0px;
+  display: none;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+    height: auto;
+    display: block;
+  }
 }
 
 .container {
@@ -26,8 +41,6 @@
   transition: all 0.25s ease-in-out;
 }
 
-
-
 .main {
   display: flex;
   flex-direction: column;
@@ -38,18 +51,13 @@
   text-align: center;
 }
 
-
 .subtitle {
-
   span {
-  font-size: 56px;
-  line-height: 56px;
-  font-weight: 700;
+    font-size: 56px;
+    line-height: 56px;
+    font-weight: 700;
   }
-
 }
-
-
 
 .titleMain {
   font-size: 184px;
@@ -62,7 +70,6 @@
   line-height: 52px;
   max-width: 850px;
   margin: 15px auto 120px;
-
 }
 
 .bulbOnOuter {
@@ -120,6 +127,7 @@
   box-shadow: 0px -37px 95px 45px var(--green);
   opacity: 0;
   transition: opacity 0.3s;
+  z-index: 3;
 }
 
 .bottomTitle {
@@ -159,10 +167,10 @@
   transform: translateX(-50%);
   cursor: pointer;
   z-index: 99;
-  transition: .2s ease all;
+  transition: 0.2s ease all;
 
   &:hover {
-    opacity: .6;
+    opacity: 0.6;
   }
 }
 @media (max-width: 1200px) and (min-width: 999px) {

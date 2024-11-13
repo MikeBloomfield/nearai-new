@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Hero from './components/hero/Hero';
 import Footer from './components/footer/Footer';
 import Map from './components/map/Map';
@@ -15,19 +15,15 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      {isOpenWindow ? (
-        <Article setWindow={setIsOpenWindow} />
-      ) : (
-        <>
-          <Hero />
-          <Map />
-          <Landscape setWindow={setIsOpenWindow} />
-          <Solution />
-          <Road />
-          <Unwritten />
-          <Footer />
-        </>
-      )}
+      <div className={`${isOpenWindow && styles.hide}`}>
+        <Hero />
+        <Map />
+        <Landscape setWindow={setIsOpenWindow} />
+        <Solution />
+        <Road />
+        <Unwritten />
+      </div>
+      <Article setWindow={setIsOpenWindow} isOpenWindow={isOpenWindow} />
     </div>
   );
 }
